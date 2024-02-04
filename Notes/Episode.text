@@ -1,0 +1,58 @@
+igniting your app
+NPM NPMjs.com package manager 
+bundle 
+npm init (-y ignore few thing )
+package json -- configuration  of project 
+
+bundler--> webpack,veet,parcel 
+
+npm install -D parcel 
+  two type of package and dependencies 
+     dev dependencies only used for dev
+     prod or normal 
+     
+     ------------------------
+     ~ install major version 
+     ^ to install new or latest  version 
+
+     package-lock.json
+      track the exact version
+      log the version 
+      integrity  hash all 
+      node module -- all dependencies code 
+      ------------------
+      transitive dependencies dependencies depend on other packages 
+      -----------------------------
+      babel 
+      browser-List
+
+      npx parcel index.html
+      npm install the package
+      npx execute the package
+
+      cdn is not preferred way to add react 
+
+      ---------------
+  # parcel
+    -Dev build 
+    -local server
+    -file watching algorithm - written in c++
+    -caching -faster build
+    -image optimization 
+    -minification
+    -bundling 
+    -file compressing
+    -Tree Shaking- remove unused code
+    -Different dev and prod
+
+    https://parceljs.org/
+
+    remove cash parcel
+    -Remove-Item -Recurse -Force .parcel-cache
+
+    prod build 
+    npx parcel build index.html
+    get error for that remove main from package,json
+
+    browser list 
+    https://browserslist.dev/?q=bGFzdCAyIHZlcnNpb25z
