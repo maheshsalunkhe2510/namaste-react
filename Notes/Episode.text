@@ -4,7 +4,7 @@ bundle
 npm init (-y ignore few thing )
 package json -- configuration  of project 
 
-bundler--> webpack,veet,parcel 
+bundler--> webpack,vite,parcel 
 
 npm install -D parcel 
   two type of package and dependencies 
@@ -58,3 +58,23 @@ npm install -D parcel
     https://browserslist.dev/?q=bGFzdCAyIHZlcnNpb25z
 
     hhmr
+
+    ----------------------------------------------------------------------
+    npm run start=npm start
+
+    JSX
+    is not HTML in JSX
+    JSX is HTML like syntax looks like HTML
+    parcel =>babel transpile before it reaches the js- babel
+    ##babel is package is covert the code 
+        -js compiler 
+        -JSX => React.createElement =>HTMLElement(render)
+        -https://babeljs.io/
+        -Attribute in JSX is always camelCase 
+        -single we can write without round bracket 
+        -multiple line should in round like 
+
+ React extension 
+ -Prettier - Code formatter
+ -Bracket Pair Colorization Toggler
+ - Better Comments
