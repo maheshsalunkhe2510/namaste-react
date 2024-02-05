@@ -59,6 +59,8 @@ npm install -D parcel
 
     hhmr
 
+
+Episode 3
     ----------------------------------------------------------------------
     npm run start=npm start
 
@@ -78,3 +80,23 @@ npm install -D parcel
  -Prettier - Code formatter
  -Bracket Pair Colorization Toggler
  - Better Comments
+
+
+ -React component 
+  - two type
+    -Class based component - old 
+    -Functional based component- new  
+  
+   React Functional component 
+     name start with capital later 
+     function return JSX
+     to render the component <component/>
+     component composition -- one component into other component
+     write normal function or arrow function for component 
+     in JSX inside {} run any js code 
+     write react element directly in JSX and react element in {}
+     write component inside the react element like <component/>
+
+     cross side scripting attack-- read local storage, get cookies 
+     JSX take care cross side scripting attack it will sanitize the data before rendering 
+     call component as function inside the {component()}
