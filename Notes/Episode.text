@@ -130,4 +130,69 @@ config driven UI- driven by data
 make sure add key attribute when you loop element
 should not use key as index 
 not using keys (not acceptable ) us index as key Better than not use 
-https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/      
+https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/  
+
+
+Episode-05 part-01
+------------------------------------------------
+React make developer life easy 
+React hooke
+best practice make separate file for each component 
+folder structure for React
+https://legacy.reactjs.org/docs/faq-structure.html
+  No recommend way it is dependant on your project or industries standard
+
+  file name of component
+  js or jsx or tsx we can write any extension
+
+  export 
+  before we can import export the function
+  export default Header;
+  import with file name extension or without extension  
+  import Header from "./component/Header"
+
+  two type export 
+    named export multiple export ==> imported in {}  //import { CDN_URL } from "../utils/constants"
+    default export/import ==> export default =>import Component from "path"
+
+    we can't export multiple times the we can use name export 
+    eg constant file 
+
+    Can we do tow type of export?
+      using both named and default exports in the same file can be considered an anti-pattern.
+      It can lead to confusion and make the code harder to understand. 
+      It's generally recommended to use either named exports or default exports in a single file, but not both
+    
+
+    keep hardcoded data in separate file 
+    util or common 
+    write const variable capital letter in snakeed 
+
+
+    part 02
+    ---------------------------------
+   React hook 
+   - normal js utility function it prebuilt utility given by rect
+   - need to import that
+   two most important hook
+     -useState() -super powerful state variable 
+     -useEffect()
+     whenever state variable update react will re render the component
+
+     Reconciliation algorithm (React Fiber)
+     virtual Dom - not actual Dom
+     actual dom <div> HTML tag
+     virtual is representation actual dom => js Object react element
+
+     Dif algorithm =>
+     find diff 
+     react 16 new algorithm to update the dom react fiber(new algorithm) 
+     finding dif in the dom and update
+
+     React Fiber Architecture=> https://github.com/acdlite/react-fiber-architecture
+     
+     doing efficient dom manipulation using virtual dom
+     diff algorithms very efficient
+     Reconciliation
+     react constantly monitor state variable 
+    

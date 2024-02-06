@@ -18,8 +18,10 @@
     width: 150px;
     margin: 5px;
     flex-wrap:wrap ;
-
+    background-color: "#F0f0f0";
 }
+
+
 
 .res-container {
     display: flex;
@@ -48,4 +50,7 @@
 
 .res-logo {
     width: 190px;
+}
+.filter-btn{
+    margin: 5px;
 }
