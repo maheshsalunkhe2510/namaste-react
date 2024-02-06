@@ -100,3 +100,34 @@ Episode 3
      cross side scripting attack-- read local storage, get cookies 
      JSX take care cross side scripting attack it will sanitize the data before rendering 
      call component as function inside the {component()}
+
+Episode 04
+---------------------------------------------------
+Food ordering app
+ How to build such app?
+  1 planning--> should know what is build   
+  Name   
+component 
+    Header
+       -logo
+       -Nave Item
+    Body
+        -search 
+        -card container 
+           restaurant card 
+             -image
+             -Name of Res, Star Rating,cuisines, delivery time 
+     footer 
+        copyright 
+        links 
+        address 
+        contact
+
+        https://tailwindcss.com/ css 
+
+property (props)  -m just pass argument to the function 
+config driven UI- driven by data 
+make sure add key attribute when you loop element
+should not use key as index 
+not using keys (not acceptable ) us index as key Better than not use 
+https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/      
