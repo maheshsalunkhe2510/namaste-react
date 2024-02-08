@@ -195,4 +195,28 @@ https://legacy.reactjs.org/docs/faq-structure.html
      diff algorithms very efficient
      Reconciliation
      react constantly monitor state variable 
+
+Episode 06
+--------------------------------------------
+Monolith Architecture-- all module in same project
+Microservice Architecture= Diff service for diff feature 
+        -- separation project 
+        --single responsibly 
+  how to infract with each other ?
+
+  two way to call API
+   page load ==> make API call(500 time) =-> wait and render the UI
+   page load ===> render the UI==>make API call ==> get result and render the data 
+       better approach load page first 
+       react render cycle is very fast 
+
+       hook 
+       useEffect
+       fetch ===>is given by browser 
+       cross origin issue  ==> browser blocked
+       conditional rendering => render the component based on diff conditional
+
+       why we use useState the state variable?
+       whenever state variable update triggers a Reconciliation cycle (render the whole component)
+         finding the diff between virtual dom and new virtual dom and update the dom
     
