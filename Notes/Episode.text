@@ -219,4 +219,63 @@ Microservice Architecture= Diff service for diff feature
        why we use useState the state variable?
        whenever state variable update triggers a Reconciliation cycle (render the whole component)
          finding the diff between virtual dom and new virtual dom and update the dom
-    
+         
+
+Episode-07
+------------------------------------------------
+React routing
+useEffect 
+  if the no dependance array ===>is called every render of the component
+  if dependance array is empty ===> is called on initial render and just once 
+  if you pass dependency ==> is called on when dependency change  
+
+UseSate
+  Never crated useState outside component is used for local variable
+  Always declare state variable on top of the component
+  Never create useSate inside the if else it created inconsistency in app
+  Never create state variable inside the function
+
+  React router 6.4 version 
+  https://reactrouter.com/en/main
+
+  Routing  configuration ==> create-router-dom
+  createBrowserRouter==>  pass object contain path and element 
+  {
+    path:""
+    element:""
+    errorElement :""
+  }
+  this recommended  router by react document 
+   routerProvider  ==> provide the browser Router configuration  
+   routerProvider is component is render 
+   <RouterProvider router="configuration">
+   rafce==> vs code shortcut create component
+    Error handler 
+
+   - function started with use is hook 
+    useRouteError- it is proved error details 
+
+    children route 
+    Outlet component==> filed with children according to the path
+     Never use as anchor tag for routing path because it refresh page 
+     use Link component => <Link to="path"></Link>
+     single page application
+
+     Two type of routing web application
+       1 client side => not refresh the only load the component
+       2 server side routing => refresh the page req to server and get the page and render on the browser
+
+       Dynamic routing 
+       /:id if this then id is consider as dynamic 
+
+       Graph Ql load require data
+       veg only
+       useParam==>get query params from the url
+       useParam==>get query params from the url
+
+       when loop the element key should be for the parent dom element 
+       behind the seen link is used anchor tag
+        can't use useState in loop 
+        can't create useState in function
+
+

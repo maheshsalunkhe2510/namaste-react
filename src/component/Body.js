@@ -1,7 +1,8 @@
 import RestaurantCard from "./RestaurantCard"
 import { useState, useEffect } from "react";
-
-
+import { Link } from "react-router-dom";
+import { RESTAURANT_LIST_URL } from "../utils/constants";
+import Shimmer from "./Shimmer"
 const Body = () => {
     const [restaurantsListData, setRestaurantsListData] = useState([]);
     const [searchInputText, setSearchInputText] = useState([]);
@@ -12,7 +13,7 @@ const Body = () => {
     }, []);
 
     fetchData = async () => {
-        data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.183561174748895&lng=72.99311242997646&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING", {
+        data = await fetch(RESTAURANT_LIST_URL, {
         });
         let res = await data.json()
         console.log(res);
@@ -20,6 +21,9 @@ const Body = () => {
         setRestaurantsListData(resData);
         setFilterRestaurant(resData);
     };
+    if (restaurantsListData.length === 0) {
+        return <Shimmer />
+    }
     return <div className="body">
         <div className="searchBar">
             <input className="search-input" value={searchInputText} onChange={(event) => {
@@ -40,7 +44,12 @@ const Body = () => {
         </div>
         <div className="res-container">
             {
-                filterRestaurant.map(restaurant => <RestaurantCard key={restaurant.id} resData={restaurant.info} />)
+
+                filterRestaurant.map(restaurant =>
+                    <Link key={restaurant.info.id} to={"restaurant/" + restaurant.info.id}>
+                        <RestaurantCard resData={restaurant.info} />
+                    </Link>
+                )
             }
         </div>
     </div>
