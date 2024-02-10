@@ -277,5 +277,63 @@ UseSate
        behind the seen link is used anchor tag
         can't use useState in loop 
         can't create useState in function
+---------------------------------------------------------
+Episode 08
+     Class based component
+        is old way to create component
+        is normal js Class
+        Extends form  React.Component
+        Component has render function => return JSX 
+        constructor receive prop
+        should use super(props)
+        why we write super() ?
+
+    State variable in class component
+    state is create when class create instance 
+    create in state variable in constructor
+    state is object we can add all state variable 
+    use ==> ths.state.property name
+    behind seem in functional Component create single variable for all state
+    never update state variable directly 
+    use this.setState();
+    state variable update only passed property
 
 
+Life Cycle of class base component
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+      create instance of class 
+      constructor called 
+      render called 
+      componentDidMount called 
+
+      parent constructor called
+      parent render called
+      children constructor called
+      children render called
+      children componentDidMount called
+      parent componentDidMount called
+
+
+     use of componentDidMount ==> make an API calls
+  Rect 
+// log of app
+    parent constructor called 
+    About.js:14 parent render called 
+    UserClass.js:9 child constructor is called First Child
+    UserClass.js:16 child render called First Child
+    UserClass.js:9 child constructor is called Second child
+    UserClass.js:16 child render called Second child
+    UserClass.js:12 child component mount called First Child
+    UserClass.js:12 child component mount called Second child
+    About.js:11 parent component did mount  called 
+
+    componentDidUpdated==> after dom updated 
+
+    Never compare the react class based component life cycle with function component
+    we can use useEffect more time based dependencies that you want pass 
+    we need clear thing 
+    this shared with all method of class component
+
+    useEffect of function component
+      if we return the function inside the useEffect, that functional will call when component 
+         unmount and we can doe clean activity inside that function
