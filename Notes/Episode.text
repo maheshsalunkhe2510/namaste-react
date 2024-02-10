@@ -337,3 +337,33 @@ https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
     useEffect of function component
       if we return the function inside the useEffect, that functional will call when component 
          unmount and we can doe clean activity inside that function
+-------------------------------------------------------------
+Episode 09
+----------------------------------------------
+optimization of code
+single responsibly==> 
+reusable 
+testable  
+modularity 
+testability 
+break down code        
+-----------
+custom hooks
+
+hooks ==> utility function
+can create local storage ans session storage
+
+bundler 
+----------
+ create single file and minified 
+ app chunking 
+ Code splitting
+ Dynamic bundling 
+ Lazy loading
+ on demand loading 
+ dynamic import 
+ lazy is function given by react 
+//const Grocery = lazy(() => import("./component/Grocery"))
+
+Suspense => react component for lazy load component
+

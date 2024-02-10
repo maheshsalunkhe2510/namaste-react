@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard"
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { RESTAURANT_LIST_URL } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 import Shimmer from "./Shimmer"
 const Body = () => {
     const [restaurantsListData, setRestaurantsListData] = useState([]);
@@ -21,6 +22,10 @@ const Body = () => {
         setRestaurantsListData(resData);
         setFilterRestaurant(resData);
     };
+    const onlineStatus = useOnlineStatus();
+    if (onlineStatus===false) {
+        return <h1>Looks like you're offline!! PLease check your internet connection</h1>
+    }
     if (restaurantsListData.length === 0) {
         return <Shimmer />
     }
