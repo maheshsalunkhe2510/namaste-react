@@ -367,3 +367,23 @@ bundler
 
 Suspense => react component for lazy load component
 
+-----------------------------------------------------------------
+Episode 10  CSS style 
+Sass wring CSS with extra feature, 
+scss
+This not recommend way
+---------------
+Style component ways use most of company 
+https://styled-components.com/
+Material component ==> react component libraries pre built component
+bootstrap 
+chkra ui  
+ant design https://ant.design/
+--------------------------
+tailwind css
+https://tailwindcss.com/docs/guides/parcel
+postcssrc  ==> parcel use postcssrc  use to understand tailwind
+tailwind configuration => which file apply
+
+importing tailwind css in project through css
+parcel include tailwind css which is used in application 

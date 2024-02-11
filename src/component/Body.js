@@ -18,36 +18,45 @@ const Body = () => {
         });
         let res = await data.json()
         console.log(res);
-        const resData = res.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        const resData = res.data.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
         setRestaurantsListData(resData);
         setFilterRestaurant(resData);
     };
     const onlineStatus = useOnlineStatus();
-    if (onlineStatus===false) {
+    if (onlineStatus === false) {
         return <h1>Looks like you're offline!! PLease check your internet connection</h1>
     }
-    if (restaurantsListData.length === 0) {
+    if (restaurantsListData?.length === 0) {
         return <Shimmer />
     }
     return <div className="body">
-        <div className="searchBar">
-            <input className="search-input" value={searchInputText} onChange={(event) => {
-                setSearchInputText(event.target.value);
-            }} />
-            <button className="search-btn" onClick={() => {
-                let filteredList = restaurantsListData.filter(res => res.info.name.toLowerCase().includes(searchInputText.toLowerCase()));
-                setFilterRestaurant(filteredList);
-            }}>
-                search
-            </button>
+        <div className="searchBar flex items-center">
+            <div className="m-4 p-4">
+                <input className="border border-solid border-black" value={searchInputText} onChange={(event) => {
+                    setSearchInputText(event.target.value);
+                }} />
+            </div>
+            <div>
+                <button className="search-btn px-4 m-4 bg-green-200 py-2 rounded-lg" onClick={() => {
+                    let filteredList = restaurantsListData.filter(res => res.info.name.toLowerCase().includes(searchInputText.toLowerCase()));
+                    setFilterRestaurant(filteredList);
+                }}>
+                    search
+                </button>
+            </div>
+            <div className="filter flex">
+                <div className="m-4 p-4">
+                    <button
+                        className="filter-btn px-4 m-4 bg-green-200 py-2 rounded-lg"
+                        onClick={() => {
+                            let filteredList = restaurantsListData.filter(res => res.info.avgRating > 4.5);
+                            setFilterRestaurant(filteredList);
+                        }} >To rated button </button>
+                </div>
+            </div>
         </div>
-        <div className="filter">
-            <button onClick={() => {
-                let filteredList = restaurantsListData.filter(res => res.info.avgRating > 4.5);
-                setFilterRestaurant(filteredList);
-            }} className="filter-btn" >To rated button </button>
-        </div>
-        <div className="res-container">
+
+        <div className="res-container flex flex-wrap">
             {
 
                 filterRestaurant.map(restaurant =>
