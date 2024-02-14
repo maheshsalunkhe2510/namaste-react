@@ -1,13 +1,15 @@
-import RestaurantCard from "./RestaurantCard"
-import { useState, useEffect } from "react";
+import RestaurantCard, { withVegLabel } from "./RestaurantCard"
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { RESTAURANT_LIST_URL } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import Shimmer from "./Shimmer"
+import Shimmer from "./Shimmer";
+import UserContext from "../utils/UserContext";
 const Body = () => {
     const [restaurantsListData, setRestaurantsListData] = useState([]);
     const [searchInputText, setSearchInputText] = useState([]);
     const [filterRestaurant, setFilterRestaurant] = useState([]);
+    const { loggedInUser, setUserName } = useContext(UserContext);
     useEffect(() => {
         console.log('use effect is called');
         fetchData();
@@ -18,11 +20,12 @@ const Body = () => {
         });
         let res = await data.json()
         console.log(res);
-        const resData = res.data.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        const resData = res.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
         setRestaurantsListData(resData);
         setFilterRestaurant(resData);
     };
     const onlineStatus = useOnlineStatus();
+    const VegLabel = withVegLabel(RestaurantCard);
     if (onlineStatus === false) {
         return <h1>Looks like you're offline!! PLease check your internet connection</h1>
     }
@@ -44,6 +47,12 @@ const Body = () => {
                     search
                 </button>
             </div>
+            <div>
+                <label className="p-2">USer Name: </label>
+                <input  value={loggedInUser} className="border border-solid border-black" onChange={(e) => {
+                    setUserName(e.target.value);
+                }} />
+            </div>
             <div className="filter flex">
                 <div className="m-4 p-4">
                     <button
@@ -61,7 +70,9 @@ const Body = () => {
 
                 filterRestaurant.map(restaurant =>
                     <Link key={restaurant.info.id} to={"restaurant/" + restaurant.info.id}>
-                        <RestaurantCard resData={restaurant.info} />
+                        {restaurant.info?.veg ? (
+                            <VegLabel resData={restaurant.info} />
+                        ) : (<RestaurantCard resData={restaurant.info} />)}
                     </Link>
                 )
             }

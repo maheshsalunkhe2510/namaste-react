@@ -15,4 +15,16 @@ const RestaurantCard = (props) => { // destructure {p1,p2} style={{ backgroundCo
     )
 }
 
+export const withVegLabel = (RestaurantCard) => {
+    return (props) => {
+        return (
+            <div>
+                <label className="absolute bg-green-950 text-white m-2 p-2 rounded-lg">Veg Only</label>
+                <RestaurantCard {...props}/>
+            </div>
+        );
+    };
+
+};
+
 export default RestaurantCard;

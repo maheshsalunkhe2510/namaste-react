@@ -387,3 +387,53 @@ tailwind configuration => which file apply
 
 importing tailwind css in project through css
 parcel include tailwind css which is used in application 
+
+-------------------------------------------------------------
+Episode - 11 Data is the New oil
+Higher order component-- is function take component return enhance component
+     -add extra feature enhance the feature 
+     - current swiggy example add label to restaurant as veg
+Two type of layer 
+  UI(static) layer =>JSX powered by data layer 
+  Data Layer => prop, local, variable, state, js code
+
+  React dev tool chrome extension
+  https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi
+  You will get two new tabs in your Chrome DevTools: "⚛️ Components" and "⚛️ Profiler".
+  Profiler".=> colorful component is that we perform the action 
+  controlled component ==> if controlled it self 
+  uncontrolled component ===> 
+  
+  lifting state up
+  https://react.dev/learn/sharing-state-between-components#lifting-state-up-by-example
+
+  Prop Drilling
+  -------------------
+      React one way data flow - parent to chili
+      https://react.dev/learn/passing-data-deeply-with-context#replace-prop-drilling-with-context
+      should avoid props drilling in Different wya 
+      
+    React context ==> we can access data across the application 
+                    example - logged in user ,theme 
+     react proved method to create context 
+     import { createContext } from "react"
+      To use that context  react provide useContext  
+      we can crate multiple context    
+      class based component we can't use hook  
+      for class based component we can use <UserContext.Consumer> and use call back to get the data 
+
+       <UserContext.Consumer>
+                    {
+                      //call back function react call the function to get the data 
+                        ({ loggedInUser }) => <h1 className="font-bold text-lg">{loggedInUser}</h1>
+                    }
+      </UserContext.Consumer>   
+
+      to change the context use  UserContext.RouterProvider
+       need wrap the component into to this to get the data   
+       <UserContext.Provider value={{ loggedInUser: userName }}> 
+          only update inside the tag only 
+       <UserContext.Provider/>
+
+       Data management libraries state management => using context
+       Redux => state management libraries is not part of react for huge application
