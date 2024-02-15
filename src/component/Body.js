@@ -48,7 +48,7 @@ const Body = () => {
                 </button>
             </div>
             <div>
-                <label className="p-2">USer Name: </label>
+                <label className="p-2">User Name: </label>
                 <input  value={loggedInUser} className="border border-solid border-black" onChange={(e) => {
                     setUserName(e.target.value);
                 }} />
@@ -60,7 +60,7 @@ const Body = () => {
                         onClick={() => {
                             let filteredList = restaurantsListData.filter(res => res.info.avgRating > 4.5);
                             setFilterRestaurant(filteredList);
-                        }} >To rated button </button>
+                        }} >Top Rated Restaurant  </button>
                 </div>
             </div>
         </div>

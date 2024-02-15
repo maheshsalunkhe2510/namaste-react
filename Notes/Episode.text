@@ -436,4 +436,83 @@ Two type of layer
        <UserContext.Provider/>
 
        Data management libraries state management => using context
+       we can change user context passing by function
        Redux => state management libraries is not part of react for huge application
+
+       Episode-12
+       --------------------------------------------------------------------------------------------------------
+       Redux - state management
+       https://redux-toolkit.js.org/introduction/getting-started
+       two libraries Redux toolkit (RTK)
+        1 React redux -bridge between react and redux 
+        2 Redux toolkit -latest way to use  
+       Redux is not mandatory use when it require
+       zustand is state management library  
+       a lots of data transpiration 
+       large scale application
+       Redux Architecture
+       Very Big Object it kept in central global place 
+       slices inside the redux store- small portion redux store
+       Why need this slices ?
+       logical partition 
+              user detail 
+              cart detail
+              Them detail  
+ we cant modified cart slice
+   Write the Data
+   add button click => despatches action => calls function => modified or update the redux store cart slice 
+   function is known as reducer 
+
+   Read the Data
+  use selector => will give modified the react Data
+  subscribing to the store 
+  store changes it automatically update the react component
+    -install libraries @reduxjs/toolkit react-redux
+    -build our store
+    -connect our store to our app
+    -slice (cart slice ) 
+    -dispatch(action)
+    -selector
+
+    Provider wrap the require portion into that 
+     store as key and pass the store
+     muted the state 
+     selector is hook of the react useSelector form react-redux 
+     useDispatch is again hook to use to do the action => useDispatch()(action)
+     import the action pass the to the dispatch
+
+     export action and reducer 
+     createSlice return object contain action and reducer attribute
+     configureStore contain multiple reducer
+
+    Diff between below
+    onclick={functionName} => passing callback as function 
+    onclick={()=>functionName(params)} => passing call function and call the function in that
+    onclick={functionName(params)} calling function
+
+    whenever we use useSelector make sure you subscribe right portion of store to improve the performance 
+    In store use world reducer 
+    In slice use reducers => multiple function
+    export time export only reducer  
+    Older redux => don't muted state it is prohibited
+    const newState=[...state]
+    return newState.item.push('');
+    return is mandatory 
+
+    Nes redux => have to muted the state   
+    redux is use immer library to immutable state and  developer not need to do this 
+    provide new state 
+    allows you to work with immutable state in a more convenient way.
+    https://immerjs.github.io/immer/
+    if we log state we can't see the detail
+    we use current sate and we can pass sate and we get the details 
+    we can also return empty array the state wil clear
+    either mutate the existing  state or return new state
+    when we return the it will replace with that value 
+    return is no mandatory but if we pass it will replace original state
+    Redux Dev tool
+    https://chromewebstore.google.com/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
+    RTK Query 
+    https://redux-toolkit.js.org/rtk-query/overview
+    https://redux-toolkit.js.org/tutorials/rtk-query
+    
