@@ -57,7 +57,7 @@ npm install -D parcel
     browser list 
     https://browserslist.dev/?q=bGFzdCAyIHZlcnNpb25z
 
-    hhmr
+    HMR =hot module replacement parcel is doing
 
 
 Episode 3
@@ -73,7 +73,7 @@ Episode 3
         -JSX => React.createElement =>HTMLElement(render)
         -https://babeljs.io/
         -Attribute in JSX is always camelCase 
-        -single we can write without round bracket 
+        -single line we can write without round bracket 
         -multiple line should in round like 
 
  React extension 
@@ -140,7 +140,7 @@ React hooke
 best practice make separate file for each component 
 folder structure for React
 https://legacy.reactjs.org/docs/faq-structure.html
-  No recommend way it is dependant on your project or industries standard
+  Not recommend way it is dependant on your project or industries standard
 
   file name of component
   js or jsx or tsx we can write any extension
@@ -149,16 +149,16 @@ https://legacy.reactjs.org/docs/faq-structure.html
   before we can import export the function
   export default Header;
   import with file name extension or without extension  
-  import Header from "./component/Header"
+  import Header from "./component/Header" or "./component/Header.js"
 
   two type export 
     named export multiple export ==> imported in {}  //import { CDN_URL } from "../utils/constants"
     default export/import ==> export default =>import Component from "path"
 
-    we can't export multiple times the we can use name export 
+    we can't export multiple times then we can use name export 
     eg constant file 
 
-    Can we do tow type of export?
+    Can we do tow type of export? Yes
       using both named and default exports in the same file can be considered an anti-pattern.
       It can lead to confusion and make the code harder to understand. 
       It's generally recommended to use either named exports or default exports in a single file, but not both
@@ -166,13 +166,13 @@ https://legacy.reactjs.org/docs/faq-structure.html
 
     keep hardcoded data in separate file 
     util or common 
-    write const variable capital letter in snakeed 
+    write const variable capital letter in Snake case 
 
 
     part 02
     ---------------------------------
    React hook 
-   - normal js utility function it prebuilt utility given by rect
+   - normal js utility function it prebuilt utility given by react
    - need to import that
    two most important hook
      -useState() -super powerful state variable 
@@ -202,10 +202,10 @@ Monolith Architecture-- all module in same project
 Microservice Architecture= Diff service for diff feature 
         -- separation project 
         --single responsibly 
-  how to infract with each other ?
+  how to interact with each other ?
 
   two way to call API
-   page load ==> make API call(500 time) =-> wait and render the UI
+   page load ==> make API call(some time) =-> wait and render the UI
    page load ===> render the UI==>make API call ==> get result and render the data 
        better approach load page first 
        react render cycle is very fast 
@@ -315,9 +315,9 @@ https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 
 
      use of componentDidMount ==> make an API calls
-  Rect 
+  React 
 // log of app
-    parent constructor called 
+                parent constructor called 
     About.js:14 parent render called 
     UserClass.js:9 child constructor is called First Child
     UserClass.js:16 child render called First Child
@@ -515,4 +515,82 @@ Two type of layer
     RTK Query 
     https://redux-toolkit.js.org/rtk-query/overview
     https://redux-toolkit.js.org/tutorials/rtk-query
+
+    ---------------------------------------------------------------------------------------------------
+    Episode- 13 Unit test cases
+    Why write unit test case?
+     Manual testing 
+     Unit testing
+     Type of test cases (developer)
+     1 unit testing => isolation of App=> one unit (function, component)
+     2 integration testing =>  testing integration of multiple component, test flow 
+     3 end to end testing E22 => start to end simulate the use action across the application
     
+    libraries used for test 
+      React Testing Library
+      https://testing-library.com/docs/react-testing-library/intro/
+      built on dom testing library
+      In create react app  it includes 
+      React Testing Library Uses jest 
+      jest use babel 
+      install react testing Library
+      npm install --save-dev @testing-library/react
+
+      installed libraries
+      -npm install --save-dev jest
+      -install babel dependencies
+      -npm install --save-dev babel-jest @babel/core @babel/preset-env
+      -added configuration babel.config.js
+      -conflict with parcel (use babel) because of babel 
+         for that change in parcel configuration
+          https://parceljs.org/languages/javascript/#babel
+          Usage with other tools
+       -Configure Parcel Config file to disable default babel transpilation   
+      Jest configuration
+      npx --jest --init
+
+      jsdom is environment to execute test cases
+      https://testing-library.com/docs/react-testing-library/setup#jest-28
+      If you're using Jest 28 or later, jest-environment-jsdom package now must be installed separately
+
+      where do i write test cases
+      folder __testS__ or file name spec.js and test.js ot .ts
+
+      __ tow time its known as dunder test
+
+      -install @babel/preset-react - to make JSX work in test cases
+      -include  @bebel/preset-react inside my babel config
+      -['@babel/preset-react', {runtime:"automatic"}]
+      -babel is convert JSX code covert to HTML to testing 
+      -install npm i -D @testing-library/jest-dom
+        getByRole define jest like button header 
+        screen is to get the html element
+        geAlltByRole get multiple input 
+        return react virtual dom element object
+        we can group the test cases using Describe block
+        we can add Describe inside the Describe
+        It and test is same (it easier to read )
+    -------------------------------------------
+    error for react redux test cases
+    could not find react-redux context value; please ensure the component is wrapped in a <Provider> 
+    it will fail for Link component
+    Provide router to run the test cases
+    simulate click event using fire 
+    fireEvent.click(loginButton);
+
+    to continue run the test cases use "jest --watch"
+    whenever we use async or state update operation the wrap the component in act function
+    act function form react-dom/test-util
+    import { act } from "react-dom/test-utils"
+      await act(async () => {
+        render(
+            <BrowserRouter> <Body ></Body></BrowserRouter>
+        )
+    })
+    beforeAll(()=>{
+
+    });
+    beforeAll(callback fn) => before running all the test cases
+    beforeEach(callback fn)  => before run each of the test cases 
+    afterAll(callback fn)  => after run all of the test cases 
+    afterEach(callback fn)  => after run each of the test cases 
