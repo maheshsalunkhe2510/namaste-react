@@ -5,25 +5,17 @@ import { RESTAURANT_LIST_URL } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Shimmer from "./Shimmer";
 import UserContext from "../utils/UserContext";
+import useRestaurantList from "../utils/useRestaurantList";
 const Body = () => {
-    const [restaurantsListData, setRestaurantsListData] = useState([]);
+    //const [restaurantsListData, setRestaurantsListData] = useState([]);
     const [searchInputText, setSearchInputText] = useState([]);
     const [filterRestaurant, setFilterRestaurant] = useState([]);
     const { loggedInUser, setUserName } = useContext(UserContext);
+    const restaurantsListData = useRestaurantList(setFilterRestaurant);
     useEffect(() => {
         console.log('use effect is called');
-        fetchData();
-    }, []);
 
-    const fetchData = async () => {
-        const data = await fetch(RESTAURANT_LIST_URL, {
-        });
-        console.log(data);
-        let res = await data.json()
-        const resData = res.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-        setRestaurantsListData(resData);
-        setFilterRestaurant(resData);
-    };
+    }, []);
     const onlineStatus = useOnlineStatus();
     const VegLabel = withVegLabel(RestaurantCard);
     if (onlineStatus === false) {
@@ -35,9 +27,8 @@ const Body = () => {
                 <Shimmer key={i} />
             )
         }</div>
-
     }
-    return <div className="body">
+    return filterRestaurant?.length && (<div className="body">
         <div className="searchBar flex items-center">
             <div className="m-4 p-4">
                 <input
@@ -87,6 +78,6 @@ const Body = () => {
                 )
             }
         </div>
-    </div>
+    </div>)
 }
 export default Body;

@@ -239,11 +239,11 @@ UseSate
   https://reactrouter.com/en/main
 
   Routing  configuration ==> create-router-dom
-  createBrowserRouter==>  pass object contain path and element 
+  createBrowserRouter==>  pass object array contain path and element 
   {
     path:""
     element:""
-    errorElement :""
+    errorElement :""-
   }
   this recommended  router by react document 
    routerProvider  ==> provide the browser Router configuration  
@@ -594,3 +594,7 @@ Two type of layer
     beforeEach(callback fn)  => before run each of the test cases 
     afterAll(callback fn)  => after run all of the test cases 
     afterEach(callback fn)  => after run each of the test cases 
+
+
+    npx create-react-app netfix-gpt
+
